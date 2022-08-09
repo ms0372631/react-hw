@@ -1,10 +1,10 @@
 import React from 'react';
-import { MonthlyPoints } from ''
+import { MonthlyPoints } from './MonthlyPoints';
 
 function App() {
   return (
     <>
-      <MonthlyPoints />
+      <MonthlyPoints count={3}/>
     </>
   )
 }

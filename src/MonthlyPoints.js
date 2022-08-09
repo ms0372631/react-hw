@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
+import { getTransactionsSince, getStartDate } from './API';
+import { Points } from './Points';
 
-import { getTransactions, getStartDate } from './api';
-import { PointCard } from './ScoreCard';
-
-export const MonthlyScores = ({ count }) => {
+export const MonthlyPoints = ({ count }) => {
     const [months, setMonths] = useState([])
-    const classes = useClasses()
 
     useEffect(() => {
         getTransactionsSince(getStartDate(count)).then(setMonths)
     }, [count])
 
     return (
-        <div className={classes.container}>
-            {months.map(([month, transactions]) =>
-                <ScoreCard title={month} transactions={transactions} key={month} />
-            )}
-        </div>
+        <>
+          {months.map(([month, transactions]) =>
+              <Points title={month} transactions={transactions} key={month} />
+          )}
+        </>
     )
 }
