@@ -4,7 +4,7 @@ import { MonthlyPoints } from './MonthlyPoints';
 function App() {
   return (
     <>
-      <MonthlyPoints count={3}/>
+      <MonthlyPoints count={12}/>
     </>
   )
 }

@@ -7,13 +7,13 @@ export const MonthlyPoints = ({ count }) => {
     const [months, setMonths] = useState([])
 
     useEffect(() => {
-        getTransactionsSince(getStartDate(count)).then(setMonths)
+        getTransactionsSince(getStartDate(count)).then(res => setMonths(res))
     }, [count])
 
     return (
         <>
           {months.map(([month, transactions]) =>
-              <Points title={month} transactions={transactions} key={month} />
+              <Points key={month} title={month} transactions={transactions} />
           )}
         </>
     )
