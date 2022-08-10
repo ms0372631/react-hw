@@ -13,7 +13,7 @@ export const MonthlyPoints = ({ count }) => {
     return (
         <>
           {months.map(([month, transactions]) =>
-              <Points key={month} title={month} transactions={transactions} />
+              <Points key={month} month={month} transactions={transactions} />
           )}
         </>
     )

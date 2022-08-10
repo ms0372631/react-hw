@@ -1,19 +1,19 @@
 
 
 const generateData = (startDate) => {
-    const [min, max] = [25, 200]
+    const [mn, mx] = [25, 200]
     const length = 200
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const endDate = new Date()
-    const startMs = startDate.getTime()
-    const spanMs = endDate.getTime() - startMs
+    const startM = startDate.getTime()
+    const spanMs = endDate.getTime() - startM
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    return Array.from({ length }, () => startMs + Math.round(Math.random() * spanMs))
+    return Array.from({ length }, () => startM + Math.round(Math.random() * spanMs))
         .sort((a, b) => a - b)
         .map((date) => ({
             date,
             month: months[new Date(date).getMonth()],
-            purchaseAmount: min + Math.random() * (max - min) | 0
+            purchaseAmount: mn + Math.random() * (mx - mn) | 0
         }))
 }
 
@@ -40,5 +40,4 @@ export const calcScore = (price) => {
     return (price - 100) * 2 + 50
 }
 
-// async to mimic an actual fetch
 export const getTransactionsSince = async (startDate) => reduceTransactionByMonth(generateData(startDate))

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { calcScore } from './API';
 
-export const Points = ({ title, transactions }) => {
+export const Points = ({ month, transactions }) => {
     const [totals, setTotals] = useState({ score: 0, moneySpent: 0 })
     const { moneySpent, score } = totals
 
@@ -18,10 +18,10 @@ export const Points = ({ title, transactions }) => {
     return (
         <div>
             <div>
-                <p>{title}</p>
+                <p>{month}</p>
             </div>
             <div>
-                <p>Purchase Total: </p>
+                <p>Total Purchase: </p>
                 <span>{moneySpent}</span>
             </div>
             <div>
